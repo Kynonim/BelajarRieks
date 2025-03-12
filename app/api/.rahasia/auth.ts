@@ -1,5 +1,3 @@
-
-
 import { existsSync, readFileSync, writeFileSync } from "fs"
 import { ApiEndpoint, UserDatabases } from "./struktur"
 

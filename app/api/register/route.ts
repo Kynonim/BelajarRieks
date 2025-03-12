@@ -1,5 +1,3 @@
-
-
 import { NextResponse } from "next/server"
 import { buatAkun, users } from "../.rahasia/auth"
 import { UserDatabases } from "../.rahasia/struktur"
