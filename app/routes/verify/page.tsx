@@ -32,6 +32,9 @@ export default function VerifikasiEmail(): JSX.Element {
         setTimeout(() => router.push(RoutesEndpoint.login), 3000)
       } else {
         setMesssage(json.message)
+        if (json.statusCode === 400) {
+          setTimeout(() => router.push(RoutesEndpoint.register), 1000)
+        }
       }
     } catch (error) {
       setMesssage("Terjadi kesalahan saat verifikasi email")

@@ -8,6 +8,6 @@ export async function POST(req: Request) {
   if (!email || !password) return NextResponse.json({ status: false, statusCode: 400, message: "Data tidak lengkap" }, { status: 400 })
 
   const user = db.prepare("SELECT * FROM users WHERE email = ?").get(email) as UserDatabases
-  const verify: Promise<Boolean> = verifikasi(password, user!.password)
-  return await verify ? NextResponse.json({ status: true, statusCode: 200, message: "Login berhasil", data: user }, { status: 200 }) : NextResponse.json({ status: false, statusCode: 401, message: "Email atau password salah" }, { status: 401 })
+  const verify: Promise<Boolean> = verifikasi(user.password, password)
+  return await verify ? NextResponse.json({ status: true, statusCode: 200, message: "Login berhasil", uid: String(user.uid) }, { status: 200 }) : NextResponse.json({ status: false, statusCode: 401, message: "Email atau password salah" }, { status: 401 })
 }

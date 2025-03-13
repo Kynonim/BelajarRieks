@@ -19,7 +19,7 @@ export default function LoginAkun() {
     })
     const response = await res.json()
     if (response.status) {
-      localStorage.setItem("kynonim", `kynonim-${data.email}`)
+      localStorage.setItem("kynonim", `kynonim-${response.uid}-${data.email}`)
       router.push(RoutesEndpoint.beranda)
     } else {
       alert(response.message)

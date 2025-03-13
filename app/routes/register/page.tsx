@@ -11,7 +11,7 @@ export default function RegisterAkun() {
   const router = useRouter()
 
   const OnRegisterAkun = async (data: UserDatabases) => {
-    const uid = nanoid()
+    const uid = nanoid(21)
     const content = { ...data, uid: uid }
     const res = await fetch(ApiEndpoint.register, {
       method: "POST",

@@ -41,6 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 # sqlite
-*sqlite
-*db
-malas.sqlite
+*.sqlite
+*.db

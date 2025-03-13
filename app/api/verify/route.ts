@@ -8,11 +8,10 @@ export async function POST(req: Request) {
   if (!user) return NextResponse.json({ status: false, statusCode: 400, message: "Email tidak terdaftar" }, { status: 400 })
   
   const nowTime = new Date().getTime()
-  const currentTime = Math.round((nowTime / 1000) / 60)
-  const otpTime = Math.round((user.times / 1000) / 60)
+  const otpTime = user.times
 
-  if (otp !== user.otp) return NextResponse.json({ status: false, statusCode: 400, message: "Kode OTP salah" }, { status: 400 })
-  if (currentTime > otpTime) {
+  if (otp !== user.otp) return NextResponse.json({ status: false, statusCode: 405, message: "Kode OTP salah" }, { status: 405 })
+  if (nowTime < otpTime) {
     db.prepare("DELETE FROM users WHERE email = ?").run(email)
     return NextResponse.json({ status: false, statusCode: 400, message: "Kode OTP sudah kadaluarsa" }, { status: 400 })
   }
