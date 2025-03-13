@@ -15,6 +15,7 @@ export default function VerifikasiEmail(): JSX.Element {
       const localEmail = localStorage.getItem("email")
       if (!localEmail) {
         setMesssage("Email tidak ditemukan")
+        setTimeout(() => router.push(RoutesEndpoint.register), 1000);
         return
       }
       const props = { email: localEmail, otp: parseInt(otp) }
@@ -25,7 +26,7 @@ export default function VerifikasiEmail(): JSX.Element {
         },
         body: JSON.stringify(props)
       })
-      const json: any = await res.json()
+      const json = await res.json()
       if (json.status) {
         setMesssage(json.message)
         localStorage.removeItem("email")
@@ -37,7 +38,7 @@ export default function VerifikasiEmail(): JSX.Element {
         }
       }
     } catch (error) {
-      setMesssage("Terjadi kesalahan saat verifikasi email")
+      setMesssage("Terjadi kesalahan " + error)
     }
   }
 
