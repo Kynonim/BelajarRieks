@@ -38,11 +38,11 @@ export default function RegisterAkun() {
       <h1>Register</h1>
       <form className={styles.loginpages} onSubmit={handleSubmit(OnRegisterAkun)}>
         <input className={styles.masukan} placeholder="Nama" {...register("name", { required: "Nama harus diisi" })} />
-        {errors.name && <span>{errors.name.message}</span>}
+        {errors.name && <span className={styles.inputinfo}>{errors.name.message}</span>}
         <input className={styles.masukan} placeholder="Email" {...register("email", { required: "Email harus diisi" })} />
-        {errors.email && <span>{errors.email.message}</span>}
+        {errors.email && <span className={styles.inputinfo}>{errors.email.message}</span>}
         <input className={styles.masukan} placeholder="Password" type="password" {...register("password", { required: "Password harus diisi" })} />
-        {errors.password && <span>{errors.password.message}</span>}
+        {errors.password && <span className={styles.inputinfo}>{errors.password.message}</span>}
         <button className={styles.tombol} type="submit">Register</button>
       </form>
       <p>Sudah punya akun ? <button className={styles.klik} onClick={onLogin}>Login</button></p>
