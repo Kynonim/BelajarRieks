@@ -1,6 +1,7 @@
 # 🚀 My Project dengan Next.js
 
-Auth real-time yang dibangun dengan Next.js, dan SQLite. Fitur-fitur utama:
+Mini Proyek App yang dibangun dengan Next.js, dan SQLite
+Kebutuhan buat Belajar. Fitur-fitur utama:
 - Registrasi dan Login dengan verifikasi OTP.
 - Manajemen Session dengan batas waktu 3 hari.
 
@@ -13,23 +14,23 @@ cd BelajarRieks
 ```
 
 2. Install Dependencies
-   * Menggunakan Node.js (npm):
+  * Menggunakan Node.js (npm):
 ```bash
 npm install
 ```
 
-   * Menggunakan Bun:
+  * Menggunakan Bun:
 ```bash
 bun install
 ```
 
 ## 🛠️ Setup Environment
 
-Buat file .env di root project dan tambahkan variabel berikut:
+Buat file <strong>.env</strong> di root project dan tambahkan variabel berikut:
 ```env
 # Database
-DATABASE_PATH="sqlite:./chat.db"
-DATABASE_NAME
+DATABASE_PATH="/database/users/"
+DATABASE_NAME="pengguna.sqlite
 
 # Email (untuk verifikasi OTP)
 EMAIL_USER="your-email@gmail.com"
@@ -57,17 +58,16 @@ bun run dev
 
 ## 🛠️ Struktur Proyek
 ```bash
-aplikasi-chat-nextjs/
+BelajarRieks/
 ├── app/
 │   ├── api/                  # API Routes
-│   ├── chat/                 # Halaman Chat
-│   ├── login/                # Halaman Login
-│   ├── register/             # Halaman Registrasi
+│   ├── routes/               # Halaman Aplikasi
+│   ├── components/           # Komponen UI
+│   ├── lib/                  # Utility functions
+│   ├── styles/               # Styling CSS
+│   ├── pages.tsx             # Halaman Utama
 │   └── layout.tsx            # Layout utama
-├── components/               # Komponen UI
-├── lib/                      # Utility functions
-├── public/                   # File statis (gambar, font, dll.)
-├── styles/                   # File CSS
+├── public/                   # File statis (gambar, video, dll.)
 ├── .env                      # File environment
 ├── package.json              # Dependencies
 └── README.md                 # Dokumentasi proyek
@@ -76,19 +76,35 @@ aplikasi-chat-nextjs/
 ## 🔧 Teknologi yang Digunakan
 
 - Next.js: Framework React untuk SSR dan routing.
-- Socket.IO: Untuk komunikasi real-time.
-- Tailwind CSS: Untuk styling komponen.
-- SQLite: Database lokal untuk menyimpan data pengguna dan chat.
+- SQLite: Mini database lokal untuk menyimpan data pengguna.
 - Nodemailer: Untuk mengirim email verifikasi OTP.
-- JWT: Untuk autentikasi dan manajemen session.
+- Bcrypt: Untuk enkripsi password pengguna.
+- Nano ID: Untuk menghasilkan ID unik.
+- Dontenv: Untuk mengelola variabel lingkungan.
 
 ## 📝 Cara Menjalankan di Produksi
 
 1. Build Proyek
-   npm run build
+  * Menggunakan Node.js (npm):
+```bash
+npm run build
+```
+
+  * Menggunakan Bun:
+```bash
+bun run build
+```
 
 2. Jalankan Server Produksi
-   npm start
+  * Menggunakan Node.js (npm):
+```bash
+npm start
+```
+
+  * Menggunakan Bun:
+```bash
+bun run start
+```
 
 ## 📄 Lisensi
 
@@ -102,6 +118,6 @@ Kontribusi sangat diterima! Silakan buka issue atau pull request untuk berkontri
 
 Jika ada pertanyaan atau masalah, hubungi:
 
-- Nama: [Riky Ripaldo]
-- Email: [rikyripaldo@icloud.com]
+- Facebook: [Riky Ripaldo](https://www.facebook.com/rikyxdz)
+- Email: [rikyripaldo@icloud.com]()
 - GitHub: [Kynonim](https://github.com/Kynonim)
