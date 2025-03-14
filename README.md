@@ -29,8 +29,8 @@ bun install
 Buat file <strong>.env</strong> di root project dan tambahkan variabel berikut:
 ```env
 # Database
-DATABASE_PATH="/database/users/"
-DATABASE_NAME="pengguna.sqlite
+DATABASE_PATH="/your/database/path"
+DATABASE_NAME="your-database-name.sqlite"
 
 # Email (untuk verifikasi OTP)
 EMAIL_USER="your-email@gmail.com"
