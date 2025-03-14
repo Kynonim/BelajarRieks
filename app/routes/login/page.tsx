@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form"
 import { ApiEndpoint, LoginDatabase, RoutesEndpoint } from "../../api/.rahasia/struktur"
 import { useRouter } from "next/navigation"
 import styles from "../../styles/malas.module.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import LoadingPage from "@/app/components/Loading"
+import { getExpiresTimes, isSession } from "../beranda/session"
 
 export default function LoginAkun() {
   const [ loading, setLoading ] = useState(false)
@@ -24,7 +25,7 @@ export default function LoginAkun() {
       })
       const response = await res.json()
       if (response.status) {
-        localStorage.setItem("kynonim", `kynonim-${response.uid}-${data.email}`)
+        localStorage.setItem("kynonim", `kynonim-${response.uid}-${getExpiresTimes()}`)
         router.push(RoutesEndpoint.beranda)
       } else {
         alert(response.message)
@@ -37,6 +38,18 @@ export default function LoginAkun() {
   }
 
   const onRegister = (): void => router.push(RoutesEndpoint.register)
+
+  useEffect(() => {
+    const kynonim = localStorage.getItem("kynonim") ?? ""
+    if (kynonim) {
+      if (!isSession(parseInt(kynonim.slice(30)))) {
+        router.push(RoutesEndpoint.beranda)
+      } else {
+        localStorage.removeItem("kynonim")
+        router.push(RoutesEndpoint.login)
+      }
+    }
+  }, [router])
 
   return (
     loading ? <LoadingPage/> :

@@ -15,11 +15,13 @@ export async function POST(req: Request) {
     await onHapus(email)
     return NextResponse.json({ status: false, statusCode: 400, message: "Kode OTP sudah kadaluarsa" }, { status: 400 })
   }
-  await onHapus(email)
+  await onHapus(email, false)
   return NextResponse.json({ status: true, statusCode: 200, message: "Verifikasi berhasil" }, { status: 200 })
 }
 
-async function onHapus(email: string) {
-  db.prepare("DELETE FROM users WHERE email = ?").run(email)
+async function onHapus(email: string, status: boolean = true) {
+  if (status) {
+    db.prepare("DELETE FROM users WHERE email = ?").run(email)
+  }
   db.prepare("DELETE FROM sessions WHERE email = ?").run(email)
 }

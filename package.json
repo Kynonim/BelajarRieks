@@ -2,6 +2,7 @@
   "name": "rieks",
   "version": "0.1.0",
   "private": true,
+  "description": "A Next.js project",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -30,5 +31,30 @@
     "eslint": "^9.22.0",
     "eslint-config-next": "15.2.1",
     "typescript": "^5.8.2"
-  }
+  },
+  "author": {
+    "name": "Riky Ripaldo",
+    "github": "https://github.com/Kynonim",
+    "license": "ISC"
+  },
+  "directories": {
+    "app": "app",
+    "public": "public",
+    "profiles": "public/core",
+    "images": "public/images",
+    "videos": "public/videos",
+    "lib": "app/lib",
+    "styles": "app/styles",
+    "components": "app/components",
+    "pages": "app/routes",
+    "api": "app/api"
+  },
+  "keywords": [
+    "next",
+    "react",
+    "typescript",
+    "nodejs",
+    "bunjs",
+    "sqlite"
+  ]
 }

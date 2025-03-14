@@ -4,13 +4,16 @@ import { ApiEndpoint, RoutesEndpoint } from "@/app/api/.rahasia/struktur"
 import { useRouter } from "next/navigation"
 import { JSX, useState } from "react"
 import styles from "@/app/styles/malas.module.css"
+import LoadingPage from "@/app/components/Loading"
 
 export default function VerifikasiEmail(): JSX.Element {
   const [ otp, setOtp ] = useState("")
   const [ message, setMesssage ] = useState("")
+  const [ loading, setLoading ] = useState(false)
   const router = useRouter()
 
   const cekVerifikasiEmail = async (): Promise<void> => {
+    setLoading(true)
     try {
       const localEmail = localStorage.getItem("email")
       if (!localEmail) {
@@ -39,10 +42,13 @@ export default function VerifikasiEmail(): JSX.Element {
       }
     } catch (error) {
       setMesssage("Terjadi kesalahan " + error)
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
+    loading ? <LoadingPage/> :
     <div className={styles.container}>
     <div className={styles.loginpages}>
       <h1>Verifikasi Email</h1>

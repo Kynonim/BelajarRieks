@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 My Project dengan Next.js
 
-## Getting Started
+Auth real-time yang dibangun dengan Next.js, dan SQLite. Fitur-fitur utama:
+- Registrasi dan Login dengan verifikasi OTP.
+- Manajemen Session dengan batas waktu 3 hari.
 
-First, run the development server:
+## 📦 Instalasi
 
+1. Clone Repositori
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Kynonim/BelajarRieks.git
+cd BelajarRieks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install Dependencies
+   * Menggunakan Node.js (npm):
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   * Menggunakan Bun:
+```bash
+bun install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Setup Environment
 
-## Learn More
+Buat file .env di root project dan tambahkan variabel berikut:
+```env
+# Database
+DATABASE_PATH="sqlite:./chat.db"
+DATABASE_NAME
 
-To learn more about Next.js, take a look at the following resources:
+# Email (untuk verifikasi OTP)
+EMAIL_USER="your-email@gmail.com"
+EMAIL_PASS="your-email-password"
+EMAIL_HOST="your-email-host"
+EMAIL_PORT=your-email-port
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NEXT_PUBLIC_SOCKET_SERVER="http://localhost:3000"
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Menjalankan Proyek
 
-## Deploy on Vercel
+1. Menjalankan di Node.js
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Menjalankan di Bun
+```bash
+bun run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Setelah itu, buka browser dan akses:
+- http://localhost:3000
+
+## 🛠️ Struktur Proyek
+```bash
+aplikasi-chat-nextjs/
+├── app/
+│   ├── api/                  # API Routes
+│   ├── chat/                 # Halaman Chat
+│   ├── login/                # Halaman Login
+│   ├── register/             # Halaman Registrasi
+│   └── layout.tsx            # Layout utama
+├── components/               # Komponen UI
+├── lib/                      # Utility functions
+├── public/                   # File statis (gambar, font, dll.)
+├── styles/                   # File CSS
+├── .env                      # File environment
+├── package.json              # Dependencies
+└── README.md                 # Dokumentasi proyek
+```
+
+## 🔧 Teknologi yang Digunakan
+
+- Next.js: Framework React untuk SSR dan routing.
+- Socket.IO: Untuk komunikasi real-time.
+- Tailwind CSS: Untuk styling komponen.
+- SQLite: Database lokal untuk menyimpan data pengguna dan chat.
+- Nodemailer: Untuk mengirim email verifikasi OTP.
+- JWT: Untuk autentikasi dan manajemen session.
+
+## 📝 Cara Menjalankan di Produksi
+
+1. Build Proyek
+   npm run build
+
+2. Jalankan Server Produksi
+   npm start
+
+## 📄 Lisensi
+
+Binggung mau ngasih lisensi apa ?
+
+## 🙏 Kontribusi
+
+Kontribusi sangat diterima! Silakan buka issue atau pull request untuk berkontribusi.
+
+## 📧 Kontak
+
+Jika ada pertanyaan atau masalah, hubungi:
+
+- Nama: [Riky Ripaldo]
+- Email: [rikyripaldo@icloud.com]
+- GitHub: [Kynonim](https://github.com/Kynonim)

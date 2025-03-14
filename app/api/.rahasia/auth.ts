@@ -1,7 +1,8 @@
 import Database from "better-sqlite3"
 
-const dbPath = process.env?.DATABASE_PATH + "malas.sqlite"
-const db = new Database(dbPath)
+const dbPath = process.env?.DATABASE_PATH
+const dbName = process.env?.DATABASE_NAME
+const db = new Database(`${dbPath}${dbName ?? "abcdefghijklmnopqrstuvwxyz.db"}`)
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
